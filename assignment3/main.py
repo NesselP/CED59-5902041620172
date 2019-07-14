@@ -1,4 +1,5 @@
 from func import*
+from practise import*
 
 print("Result of return_42() is ", return_42());
 
