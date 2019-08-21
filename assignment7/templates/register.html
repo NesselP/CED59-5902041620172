@@ -2,58 +2,36 @@
 <html lang="en" dir="ltr">
     <head>
       <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                            <!------ Include the above in your HEAD tag ---------->
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
 <article class="card-body mx-auto" style="max-width: 400px;">
 	<h4 class="card-title mt-3 text-center">Sign Up Member</h4>
 
-	<form id="contract-form" action="" method="POST">
-	<div class="form-group input-group">
-		<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-		 </div>
-        <input type = "text" name = "Name" class="form-control" placeholder="Name-Surname" required ="required">
-    </div> <!-- form-group// -->
-    <div class="form-group input-group">
-		<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-		 </div>
-        <input username="Username" class="form-control" placeholder="Username" type="text" user = "User" required ="required">
-    </div> <!-- form-group// -->
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-		 </div>
-        <input type="email" email="Email" class="form-control" placeholder="Email"  required ="required" id="email" data-validation="email">
-    </div> <!-- form-group// -->
+	<form id="contract-form" action="{{ url_for('register') }}" method="POST">
 
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-		</div>
-        <input class="form-control" placeholder="Create password" type="password" pass = "password" id = "password" minlength="8">
-    </div> <!-- form-group// -->
+        {{ form.csrf_token }}
 
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
-    </div> <!-- form-group// -->
-
-
+	    <h2><tr><td>Name : </td><td>{{ form.name }} </td></tr></h2>
+        <h2><tr><td>Lastname : </td><td> {{ form.last }} </td></tr></h2>
+        <h2><tr><td>Email : </td><td> {{ form.email }}</td></tr></h2>
+        {% for error in form.email.errors %}
+            <tr><td colspan="2" align="center"><li style="color:red">{{ error }}</li></td></tr>
+            <script language="JavaScript">alert("ก้อน Email ให้ถูกต้อง");</script>
+        {% endfor %}
+        <h2><tr><td>Username : </td><td> {{ form.username }} </td></tr></h2>
+        <h2><tr><td>Password : </td><td> {{ form.password }} </td></tr></h2>
+        {% for error in form.password.errors %}
+            <tr><td colspan="2" align="center"><li style="color:red">{{ error }}</li></td></tr>
+            <script language="JavaScript">alert("ก้อนรหัสผ่านอย่างน้อย 8-12 ตัว");</script>
+        {% endfor %}
+        <tr><td colspan="2" align="center"><input type="submit" value="Submit"/></td></tr>
 
 </form>
-
 </article>
-
-
-
-
-
     </body>
-
-
 </head>
 </html>
