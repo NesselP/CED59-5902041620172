@@ -2,4 +2,4 @@
 24.นายภูมินทร์ ช่วยรัมย์<br>
 information security<br>
 
-Assignment 10 Behavior มีปัญหาในการอัพเป็นโฟลเดอร์
+Assignment 10 Behavior มีปัญหาในการอัพเป็นโฟลเดอร์เลยอัพเป็น zip
